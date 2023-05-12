@@ -12,7 +12,7 @@
 			position: absolute;
 			top: 50%;
 			left: 20%;
-			transform: translate(-50%, -80%);
+			transform: translate(-50%, -100%);
 		}
 		li{
 			list-style: none;
@@ -54,6 +54,11 @@
 		function onCheck(value){
             const newSrc = value + '.html';
             iframeContent.src = newSrc;
+			if(value == "mey1"){
+				iframeContent.style.width = "428px";
+			}else{
+				iframeContent.style.width = "768px";
+			}			
 		}
 	</script>
 </body>
