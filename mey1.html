@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mutasi BSI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="mey_assets/fontawesome-free-6.4.0-web/css/all.min.css">
+    <link rel="stylesheet" href="mey_assets/css/mey1.css">
+</head>
+<body>
+  <nav class="navbar nav-top fixed-top">
+    <div class="container-fluid">
+      <div class="kiri">
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <img src="mey_assets/img/nav-icon.png">
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="mey_assets/img/logo_bsi.jpg" height="30">
+        </a>
+      </div>
+      <div class="kanan">
+        <a href="#">
+          <i class="fa-solid fa-envelope-open-text fa-lg font-green"></i>
+        </a>
+        <a href="#">
+          <i class="fa-solid fa-qrcode fa-lg font-green"></i>
+        </a>
+        <i class="fa-solid fa-circle indikator"></i>
+      </div>
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">BSI</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="mey1.html">Mutasi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="syifa1.html">Pengaduan Transaksi</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- isi mutasi -->
+  <div class="content">
+    <div class="title-bar">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-9 text-center">
+          <div class="h4">Daftar Mutasi</div>        
+        </div>
+        <button type="button" class="btn col text-end" data-bs-toggle="modal" data-bs-target="#filter">
+          <i class="fa-solid fa-filter font-green h5"></i>
+        </button>
+      </div>
+    </div>
+    <div class="mutasi" id="mutasi"></div>
+    <div class="btn-ok">
+      <button type="button" class="btn btn-lg mt-3 mb-4 mx-auto">OK</button>
+    </div>
+  </div>
+  <!-- end isi mutasi -->
+
+  <!-- bottom bar -->
+  <nav class="navbar nav-bottom fixed-bottom">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><i class="fa-solid fa-house"></i></a>
+      <a class="navbar-brand" href="#"><i class="fa-solid fa-mosque"></i></a>
+      <div class="empty">
+        <a href="">
+            <div class="qris">
+              <img src="mey_assets/img/qris.png" alt="QRIS">
+            </div>
+        </a>
+      </div>      
+      <a class="navbar-brand" href="#"><i class="fa-solid fa-calendar-days"></i></a>
+      <a class="navbar-brand" href="#"><i class="fa-regular fa-message"></i></a>
+    </div>
+  </nav>
+  <!-- end bottom bar -->
+  
+  <!-- Modal -->
+
+  <!-- detail mutasi -->
+  <div class="modal fade" id="detailMutasi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content detail-mutasi">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Info Mutasi</h1>
+        </div>
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn mx-auto w-50" data-bs-dismiss="modal"><b>Ok</b></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end detail mutasi -->
+
+  <!-- filter mutasi -->
+  <div class="modal fade" id="filter" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="filterModalLabel">Filter Mutasi</h5>
+          <button type="reset" class="btn-text" id="btnReset" onclick="resetFilter()">Reset</button>
+        </div>
+        <div class="modal-body">
+          <!-- start form filter -->
+          <form id="filterForm">
+            <div class="rentang">
+              <p class="font-green mt-0 title-ft">Rentang Waktu</p>
+              <div class="form-check">
+                <label class="form-check-label" for="today">
+                  Hari Ini
+                </label>
+                <input class="form-check-input" type="radio" name="rentang" id="today" value="21/04/2023">
+              </div>
+              <div class="form-check">
+                <label class="form-check-label" for="yesterday">
+                  Kemarin
+                </label>
+                <input class="form-check-input" type="radio" name="rentang" id="yesterday" value="20/04/2023">
+              </div>
+              <div class="form-check">
+                <label class="form-check-label" for="week">
+                  1 Minggu Terakhir
+                </label>
+                <input class="form-check-input" type="radio" name="rentang" id="week">
+              </div>
+              <div class="form-check">
+                <label class="form-check-label" for="month">
+                  1 Bulan Terakhir
+                </label>
+                <input class="form-check-input" type="radio" name="rentang" id="month">
+              </div>
+              <div class="form-check">
+                <label class="form-check-label" for="pilih_tgl">
+                  Pilih Tanggal
+                </label>
+                <input class="form-check-input" type="radio" name="rentang" id="pilih_tgl">
+              </div>
+              <!-- rentang pilih tgl sendiri -->
+              <div class="pilih-tgl">
+                <div class="row">
+                  <div class="form-group col-4">
+                    <label for="startDate">Tanggal Awal</label>
+                    <input type="date" class="form-control" id="startDate" name="startDate" disabled required>
+                  </div>
+                  <div class="form-group col-4">
+                    <label for="endDate">Tanggal Akhir</label>
+                    <input type="date" class="form-control" id="endDate" name="endDate" disabled required>
+                  </div>
+                  <div id="warn" class="col"></div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <!-- pilih rekening -->
+            <div class="pilih-rek d-grid">
+              <div class="title-ft font-green">Rekening</div>
+              <button class="btn btn-outline-secondary" data-bs-target="#rekModal" data-bs-toggle="modal" id="rekening">Pilih Rekening</button>
+            </div>
+
+          <!-- pilih kategori mutasi -->
+            <div class="form-group">
+              <label for="ktMutasi" class="title-ft font-green">Kategori Mutasi</label>
+              <select class="form-control" id="ktMutasi" name="ktMutasi">
+                <option value="">Pilih Kategori</option>
+                <option value="Transfer Bank">Transfer Bank</option>
+                <option value="Bayar Tagihan">Bayar Tagihan</option>
+                <option value="Tarik Tunai">Tarik Tunai</option>
+                <option value="Setor Tunai">Setor Tunai</option>
+                <option value="Top Up">Top Up</option>
+              </select>
+            </div>
+
+            <!-- pilih tipe mutasi -->
+            <div class="form-group">
+              <label for="tpMutasi" class="title-ft font-green">Tipe Mutasi</label>
+              <select class="form-control" id="tpMutasi" name="tpMutasi">
+                <option value="">Pilih Kategori</option>
+                <option value="Kredit">Kredit</option>
+                <option value="Debit">Debit</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn mx-auto w-50" onclick="filterData()" data-bs-dismiss="modal"><b>Lihat Hasil</b></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end filter mutasi -->
+
+  <!-- modal rekening -->
+  <div class="modal fade modal-rek" id="rekModal" aria-hidden="true" aria-labelledby="rekModalToggle" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="rekeningModalLabel">Pilih Rekening</h5>
+          <button class="btn btn-text" data-bs-target="#filter" data-bs-toggle="modal">Back</button>
+        </div>
+      <form id="rekForm">
+        <div class="modal-body">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="allRek" checked>
+            <label class="form-check-label" for="allRek">
+              Semua
+            </label>
+          </div>
+          <hr>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1234 5678 9123 456" id="rekening1" checked>
+            <label class="form-check-label" for="rekening1">
+              1234 5678 9123 456 <small style="color: grey;">A.N. MEY MEIZIA</small>
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="9876 5432 1987 654" id="rekening2" checked>
+            <label class="form-check-label" for="rekening2">
+              9876 5432 1987 654 <small style="color: grey;">A.N. FERDY FAUZAN</small>
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1357 2468 1589 951" id="rekening3" checked>
+            <label class="form-check-label" for="rekening3">
+              1357 2468 1589 951 <small style="color: grey;">A.N. SYIFA KHARINA</small>
+            </label>
+          </div>
+        </div>
+        </form>
+        <div class="modal-footer">
+          <button type="button" class="btn mx-auto w-50" data-bs-target="#filter" data-bs-toggle="modal" id="saveRek" onclick="simpanRek()"><b>Simpan</b></button>
+        </div>    
+      </div>
+    </div>
+  </div>
+
+  <script src="mey_assets/js/mey1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+</body>
+</html>
