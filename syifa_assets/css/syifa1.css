@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav.nav-top{
+    box-shadow: 0px 1px 5px 1px rgba(120, 120, 120, 0.5);
+    height: 70px;
+    background: white;
+}
+
+
+nav.nav-bottom{
+    background: #F9AD3D;
+}
+
+.nav-bottom a{
+    color: white;
+}
+
+.nav-bottom .qris{
+    background: linear-gradient(to bottom, #00A39E, #64D2CF);
+    border-radius: 50%;
+    border: 1px solid #F9AD3D;
+    height: 70px;
+    width: 70px;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.kanan a, .kanan{
+    margin-right: 10px;
+}
+
+.font-green{
+    color: #00A39E;
+}
+
+a .font-green:hover{
+    color: #0c615e;
+}
+
+.kanan .indikator{
+    color: green;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.content{
+    padding: 0 10px;
+    overflow: hidden;
+    margin-top: 95px;
+    margin-bottom: 55px;
+}
+
+.content .btn-ok{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-ok .btn{
+    border-radius: 25px;
+    background: #00A39E;
+    color: white;
+    width: 200px;
+}
+
+btn.mutasi-item{
+    text-align: left;
+}
+
+.mutasi-item .col-7{
+    font-size: 12px;
+}
+
+.mutasi-item .waktu-trf{
+    color: gray;
+}
+
+.mutasi-item .nominal-debit{
+    color: red;
+}
+
+.mutasi-item .nominal-kredit{
+    color: rgb(0, 207, 0);
+}
+
+.mutasi-item .kategori-mutasi{
+    color: #00A39E;
+}
+
+.modal .btn{
+    background-color: white;
+}
+
+#search-button{
+    background-color: #F9AD3D;
+}
+
+#button-pilih{
+    background-color: #F9AD3D;
+}
+
+
+.modal .btn-text{
+    background: none;
+    border: none;
+}
+
+.rentang .form-check {
+    display: flex;
+    position: relative;
+    left: -23px;
+}
+
+.rentang .form-check-input {
+    margin-right: -15px;
+}
+
+.form-check-input:checked {
+    background-color: #F9AD3D;
+    border: none;
+}  
+
+.rentang .form-check-label {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.pilih-tgl{
+    font-size: 10px;
+    color: gray;
+    font-weight: lighter;
+}
+
+.modal .pilih-rek #rekening{
+    font-size: 12px;
+    background: white;
+    text-align: left;
+}
+
+.modal .pilih-rek #rekening:hover{
+    color: gray;
+}
+
+.modal.modal-rek .form-check{
+    margin-bottom: 10px;
+}
+
+.title-ft{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    font-size: 12px;
+    padding-right: 0;
+}
+
+.error-input {
+    border-color: red;
+    color: red;
+}  
+
+.menu-pengaduan-masalah .btn-pengaduan-app{
+    display: flex;
+    justify-content: center;
+    margin-top: 230px;
+    margin-left: 50px;
+}
+
+.btn-pengaduan-app .btn{
+    border-radius: 20px;
+    background: #00A39E;
+    color: white;
+    width: 180px;
+    font-size: 10px;
+}
+
+ .menu-pengaduan-masalah .btn-pengaduan-tr{
+    display: flex;
+    justify-content: center;
+    margin-top: 230px;
+    margin-right: 50px;
+    
+}
+
+.btn-pengaduan-tr .btn{
+    border-radius: 20px;
+    background: #00A39E;
+    color: white;
+    width: 180px;
+    font-size: 10px;
+}
+
+.uploadFile {
+    margin-right: 50px;
+}
+
+
+ .btn-back{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.btn-back .btn{
+    border-radius: 15px;
+    background: lightgray;
+    color: black;
+    width: 200px;
+    font-size: 10px;
+}
+
+.modal-title{
+    display: flex;
+    margin-left: 105px;
+}
+
+.btn-upload{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-upload .btn{
+    border-radius: 15px;
+    background: #00A39E;
+    color:white;
+    width: 200px;
+    font-size: 10px;
+}
