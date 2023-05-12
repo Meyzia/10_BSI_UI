@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>BNI Tap Cash - Top Up</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+    <link rel="stylesheet" href="assets/css/ferdy-topUp.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+    <body>
+    <nav class="navigator">
+        <a href="ferdy-eMoneyMenu.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-128 0 512 512" width="1em" height="1em" fill="currentColor">
+                <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+                <path d="M192 448c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l137.4 137.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448z"></path>
+            </svg>
+        </a>
+        <h4>Electronic Money</h4>
+    </nav>
+    <div class="container graphic">
+        <img src="/assets/img/card-hand.jpg" alt="card-hand">
+    </div>
+    <div class="container" id="check-balance" >
+        <p>Make sure to check after Top Up to see your latest balance.</p>
+        <button class="btn btn-primary" type="button">Check Balance</button>
+    </div>
+    <div class="card" id="provider">
+        <div class="card-header">
+            <h6 class="  mb-2">BANK PROVIDER</h6>
+        </div>
+        <div class="card-body">
+            <img src="/assets/img/provider icon/tapcash.png">
+            <h6 class="card-subtitle mb-2">BNI Tap Cash</h6>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-128 0 512 512" width="1em" height="1em" fill="#A4A4A4" style="font-size: 30px;">
+                <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+                <path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"></path>
+            </svg>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h6 class="  mb-2">CARD NUMBER</h6>
+        </div>
+        <div class="card-body">
+            <input id="card-input" type="input" style="width: 300px;" placeholder="Type number card here">
+            <a href="#" onclick="showHideInfo()" ><i class="icon-info" style="font-size: 24px;"></i></a>
+        </div>
+    </div>
+
+    <div class="container" id="information" style="display: none;">
+        <div class="text-header">
+            <h6><strong>Information</strong></h6>
+            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor">
+                    <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+                    <path d="M256 0Cad114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"></path>
+                </svg></a>
+        </div>
+        <div class="text-content">
+            <p>1. Before Top Up, make sure your phone and card support the NFC feature.<br>
+                2. The maximum Flazz card balance is Rp2.000.000. <br>
+                3. Each Top Up transaction will be charged Rp1.500 for the admin fee. <br>
+                4.&nbsp;After Top Up, always check your Flazz balance in DANA app or at the nearest BCA ATM/retail store.</p>
+        </div>
+    </div>
+    <!-- Start: 1 Row 2 Columns -->
+    <div class="container" id="opsi-saldo" style="display: none;">
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-saldo" id="saldo-20rb" data-bs-toggle="modal" data-bs-target="#modal-payment-details">
+                    <div class="saldo">
+                        <h4 style="font-size: 26px;"><strong>20</strong></h4>
+                        <h4 style="font-size: 16px;"><strong>rb</strong></h4>
+                    </div>
+                    <h4 class="card-subtitle mb-2" style="font-size: 16px;"><strong>Rp21.500</strong></h4>
+                </button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-saldo" id="saldo-50rb" data-bs-toggle="modal" data-bs-target="#modal-payment-details">
+                    <div class="saldo">
+                        <h4 style="font-size: 26px;"><strong>50</strong></h4>
+                        <h4 style="font-size: 16px;"><strong>rb</strong></h4>
+                    </div>
+                    <h4 class="card-subtitle mb-2" style="font-size: 16px;"><strong>Rp51.500</strong></h4>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-saldo" id="saldo-100rb" data-bs-toggle="modal" data-bs-target="#modal-payment-details">
+                    <div class="saldo">
+                        <h4 style="font-size: 26px;"><strong>100</strong></h4>
+                        <h4 style="font-size: 16px;"><strong>rb</strong></h4>
+                    </div>
+                    <h4 class="card-subtitle mb-2" style="font-size: 16px;"><strong>Rp101.500</strong></h4>
+                </button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-saldo" id="saldo-200rb" data-bs-toggle="modal" data-bs-target="#modal-payment-details">
+                    <div class="saldo">
+                        <h4 style="font-size: 26px;"><strong>200</strong></h4>
+                        <h4 style="font-size: 16px;"><strong>rb</strong></h4>
+                    </div>
+                    <h4 class="card-subtitle mb-2" style="font-size: 16px;"><strong>Rp201.500</strong></h4>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-saldo" id="saldo-300rb" data-bs-toggle="modal" data-bs-target="#modal-payment-details">
+                    <div class="saldo">
+                        <h4 style="font-size: 26px;"><strong>300</strong></h4>
+                        <h4 style="font-size: 16px;"><strong>rb</strong></h4>
+                    </div>
+                    <h4 class="card-subtitle mb-2" style="font-size: 16px;"><strong>Rp401.500</strong></h4>
+                </button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-saldo" id="saldo-400rb" data-bs-toggle="modal" data-bs-target="#modal-payment-details">
+                    <div class="saldo">
+                        <h4 style="font-size: 26px;"><strong>400</strong></h4>
+                        <h4 style="font-size: 16px;"><strong>rb</strong></h4>
+                    </div>
+                    <h4 class="card-subtitle mb-2" style="font-size: 16px;"><strong>Rp401.500</strong></h4>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-saldo" id="saldo-500rb" data-bs-toggle="modal" data-bs-target="#modal-payment-details">
+                    <div class="saldo">
+                        <h4 style="font-size: 26px;"><strong>500</strong></h4>
+                        <h4 style="font-size: 16px;"><strong>rb</strong></h4>
+                    </div>
+                    <h4 class="card-subtitle mb-2" style="font-size: 16px;"><strong>Rp501.500</strong></h4>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- End: 1 Row 2 Columns -->
+
+    <!-- Modal -->
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-payment-details"  aria-labelledby="paymentDetailsModalLabel" aria-hidden="true" >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="container modal-box" >
+                    <div class="modal-header">
+                        <div class="row">
+                            <div class="col text-header">
+                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <h6 id="paymentDetailsModalLabel"><strong>PAYMENT DETAILS</strong></h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="assets/img/provider icon/flazz.JPG" alt="flazz" id="provider-icon">
+                            </div>
+                            <div class="col" id="card-info">
+                                <h6>6032 1000 2222 1111</h6>
+                                <h6>BCA Flazz</h6>
+                                <h6>Rp100.000</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body" style="background: var(--bs-modal-bg);">
+                        <div class="row" id="row-body">
+                            <div class="col" id="detail-col">
+                                <h6>Amount</h6>
+                                <h6>Rp100.000</h6>
+                            </div>
+                        </div>
+                        <div class="row" id="row-body">
+                            <div class="col" id="detail-col">
+                                <h6>Admin Fee</h6>
+                                <h6>Rp1.500</h6>
+                            </div>
+                        </div>
+                        <div class="row" id="row-body">
+                            <div class="col" id="detail-col">
+                                <h6>Virtual Account Destination</h6>
+                                <h6 style="text-align: right;">Bank Permata<br>9808694550294811</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="background: var(--bs-modal-bg);display: block;">
+                        <div class="row" id="check-terms">
+                            <div class="col-md-1 col-xxl-1 offset-xxl-0" id="checkbox"><input type="checkbox" style="width: 20px;height: 20px;transform: translateY(3px);"></div>
+                            <div class="col-md-10 terms-conditions">
+                                <h6>I agree with the&nbsp;</h6>
+                                <a id="link-terms-1" class="terms-conditions" href="#" style="margin: 0px;"><strong>Terms and Conditions</strong></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" id="detail-col-confirm" >
+                                <h6><strong>Total you pay</strong></h6>
+                                <h6><strong>Rp101.500</strong></h6>
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 0px;">
+                            <div class="col-md-12">
+                                <button class="btn btn-primary" id="btn-confirm" type="button" data-bs-dismiss="modal" aria-label="Close" data-bs-toggle="modal" data-bs-target="#modal-payment-confirm" disabled><strong>CONFIRM</strong></button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-payment-confirm" aria-labelledby="paymentConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered " role="document">
+            <div class="modal-content">
+                <div class="container modal-box">
+                    <div class="modal-header">
+                        <div class="row">
+                            <div class="col">
+                                <img src="assets/img/provider icon/dana-protection.jpg" width="100%" height="30"></div>
+                            <div class="col" id="pay-icon">
+                                <img src="assets/img/provider icon/dana.png" style="width: 45px; height: 30px;">
+                                <h6 style="color:#118EEA"><strong>PAY</strong></h6>
+                            </div>
+                            <div class="col" id="help-btn">
+                                <button class="btn btn-light" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-question-circle-fill">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"></path>
+                                    </svg>Help</button></div>
+                        </div>
+                    </div>
+                    <nav class="navigator" id="nav-confirm">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="" data-bs-dismiss="modal" aria-label="Close" data-bs-toggle="modal" data-bs-target="#modal-payment-details">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-128 0 512 512" width="1em" height="1em" fill="currentColor">
+                                        <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+                                        <path d="M192 448c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l137.4 137.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448z"></path>
+                                    </svg></a>
+                                <h6 id="paymentConfirmModalLabel">Payment Confirmation</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3" id="send-icon">
+                                <img src="assets/img/send-icon.png" width="60" height="60"></div>
+                            <div class="col">
+                                <h5 style="color: var(--bs-modal-bg);">Send Money</h5>
+                                <h6 style="color: rgb(255,255,255);">Flazz*****1111 - BCA FLAZZ KAMIL</h6>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="modal-body" style="background: var(--bs-modal-bg);margin-bottom: 50px;">
+                        <div class="row confirm-row" id="row-body-1">
+                            <div class="col" id="detail-col-total">
+                                <h6>Total Price</h6>
+                                <h6><strong>Rp101.500   </strong></h6>
+                            </div>
+                        </div>
+                        <div class="row confirm-row" id="row-body-2">
+                            <div class="col" id="detail-col">
+                                <h6>Subtotal</h6>
+                                <h6>Rp100.000</h6>
+                            </div>
+                        </div>
+                        <div class="row confirm-row" id="row-body-3">
+                            <div class="col" id="detail-col" style="justify-content: space-between;display: flex;">
+                                <h6>Transaction Fee</h6>
+                                <h6>Rp1.500</h6>
+                            </div>
+                        </div>
+                        <div class="row confirm-warning" id="row-body-4">
+                            <div class="col">
+                                <i class="material-icons">info</i>
+                                <h6>You'll&nbsp; be charged a transaction fee</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-md-2 col-xxl-1 offset-xxl-0">
+                                <div id="dana-money">
+                                    <img src="assets/img/provider icon/dana-white-icon.png" alt="logo">
+                                </div>
+                            </div>
+                            <div class="col-md-9 terms-conditions" id="detail-col-4" style="display: block;">
+                                <h6>Dana Balance</h6>
+                                <h6><strong>Rp1.500.000</strong></h6>
+                            </div>
+                            <div class="col-md-1 terms-conditions" id="detail-col-5" style="padding: 0px;">
+                                <a href="#" style="margin-left: 0px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-64 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 25px;color: rgb(164, 164, 164)   ;width: 20px;height: 20px;">
+                                        <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+                                        <path d="M352 352c-8.188 0-16.38-3.125-22.62-9.375L192 205.3l-137.4 137.4c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25C368.4 348.9 360.2 352 352 352z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 0px;">
+                            <div class="col-md-12">
+                                <button class="btn btn-primary" id="btn-confirm-1" type="button" style="width: 100%;" data-bs-dismiss="modal" aria-label="Close" data-bs-toggle="modal" data-bs-target="#modal-payment-status"><strong>PAY Rp101.500</strong></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade " role="dialog" tabindex="-1" id="modal-payment-status" aria-labelledby="paymentStatusModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="container modal-box">
+                    <div class="modal-header">
+                        <div class="row">
+                            <div class="col-2" >
+                                <button class="btn-close  btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="col-8">
+                                <h4 id="paymentStatusModalLabel" >Payment Status</h4>
+                            </div>
+                            <div class="col-2">
+                                <a href="#">
+                                    <i class="bi bi-share-fill"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col" id="coin">
+                                <img src="assets/img/payment-status-2.jpg" alt="coin">
+                            </div>
+                        </div>
+                    </div>
+                    <img src="assets/img/wavy.png" alt="wavy" id="wavy">
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-8">
+                                <h4>Rp101.500</h4>
+                            </div>
+                            <div class="col-2">
+                                <h6 style="color: #118EEA">Show</h6>
+                            </div>
+                            <div class="col-2">
+                                <a href="#" id="icon-angle" onclick="showHide()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-64 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 25px;color: rgb(164, 164, 164);">
+                                    <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+                                    <path d="M192 384c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L192 306.8l137.4-137.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-160 160C208.4 380.9 200.2 384 192 384z"></path>
+                                </svg></a> 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- panel show start -->
+                    <div class="modal-body" id="panel-show" style="display: none;">
+                        <div class="row">
+                            <div class="col">
+                                <h6>Order Info</h6>
+                                <h6>Bank Transfer</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Amount</h6>
+                                <h6>Rp101.500</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Transaction Time</h6>
+                                <h6>08 Apr 2023 12:11:48</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- panel show end -->
+                    <div class="modal-body">
+                        <div class="row" id="see-access">
+                            <center>
+                                <p>You can access this information on the Transaction History page</p>
+                            </center>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-primary" id="btn-see" type="button" style="width: 100%;">See Transaction</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
