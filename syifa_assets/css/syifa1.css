@@ -178,8 +178,8 @@ btn.mutasi-item{
     border-radius: 20px;
     background: #00A39E;
     color: white;
-    width: 180px;
-    font-size: 10px;
+    width: 200px;
+    font-size: 12px;
 }
 
  .menu-pengaduan-masalah .btn-pengaduan-tr{
@@ -194,8 +194,8 @@ btn.mutasi-item{
     border-radius: 20px;
     background: #00A39E;
     color: white;
-    width: 180px;
-    font-size: 10px;
+    width: 200px;
+    font-size: 12px;
 }
 
 .uploadFile {
@@ -237,3 +237,9 @@ btn.mutasi-item{
     width: 200px;
     font-size: 10px;
 }
+
+.no-data-icon {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 50px; /* Sesuaikan margin-top sesuai kebutuhan */
+  }
