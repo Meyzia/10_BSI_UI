@@ -298,7 +298,7 @@
                         </div>
                         <div class="row" style="margin: 0px;">
                             <div class="col-md-12">
-                                <button class="btn btn-primary" id="btn-confirm-1" type="button" style="width: 100%;" data-bs-dismiss="modal" aria-label="Close" data-bs-toggle="modal" data-bs-target="#modal-payment-status"><strong>PAY Rp101.500</strong></button>
+                                <button class="btn btn-primary" id="btn-confirm-1" type="button" style="width: 100%;" data-bs-toggle="modal" data-bs-target="#modal-pin"><strong>PAY Rp101.500</strong></button>
                             </div>
                         </div>
                     </div>
@@ -306,6 +306,34 @@
             </div>
         </div>
     </div>
+
+      
+    <div class="modal fade modal-pin" id="modal-pin" tabindex="-1" aria-labelledby="pinModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <center>
+                <h6 class="modal-title" id="pinModalLabel">Input PIN</h6>
+              </center>
+              <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            </div>
+            <div class="modal-body">
+                <a href="#" data-bs-dismiss="modal" aria-label="Close" data-bs-toggle="modal" data-bs-target="#modal-payment-status">
+                    <input type="password" id="pin" style="margin-left: 90px;" disabled>
+                    <input type="password" id="pin" style="margin-left: 130px;" disabled>
+                    <input type="password" id="pin" style="margin-left: 170px;" disabled>
+                    <input type="password" id="pin" style="margin-left: 210px;" disabled>
+                    <input type="password" id="pin" style="margin-left: 250px;" disabled>
+                    <input type="password" id="pin" style="margin-left: 290px;" disabled>
+                </a>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-primary btn-show">Show</button>
+              <button type="button" class="btn btn-link btn-forgot">FORGOT PIN</button>
+            </div>
+          </div>
+        </div>
+    </div>  
 
     <div class="modal fade " role="dialog" tabindex="-1" id="modal-payment-status" aria-labelledby="paymentStatusModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

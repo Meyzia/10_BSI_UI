@@ -579,3 +579,52 @@ nav h4{
 #information .text-content p{
   font-size: 12px;
 }
+
+
+/* optional styling */
+.modal-pin .modal-body,
+.modal-pin .modal-footer,
+.modal-pin .modal-header {
+  background-color: #fff;
+  color: #000;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.modal-pin .modal-footer{
+  display: flex;
+  flex-direction: column;
+}
+
+
+#pin{
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: none;
+  transform: translateX(-30px);
+  font-size: 20px;
+  background-color: gray;
+}
+
+#enter-password {
+  width: 414px;
+  height: 100vh;
+  margin: 200px 35px 0px 35px;
+  background-color: white;
+  position: fixed;
+  border-radius: 10px;
+  margin-left: -0px;
+  margin-top: 35vh;
+}
+
+.btn-show{
+  padding: 2px 10px 2px 10px;
+  border: 1px solid #118EEA;
+}
+
+.btn-forgot{
+  text-decoration: none;
+}

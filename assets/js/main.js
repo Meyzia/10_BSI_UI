@@ -1,3 +1,19 @@
+// pin
+const input = document.getElementById('pin');
+const dots = document.querySelectorAll('.pin-dots span');
+
+input.addEventListener('input', (e) => {
+  const value = e.target.value;
+  for (let i = 0; i < dots.length; i++) {
+    if (i < value.length) {
+      dots[i].classList.add('filled');
+    } else {
+      dots[i].classList.remove('filled');
+    }
+  }
+});
+
+
 function showHide() {
     var panelShow = document.getElementById('panel-show');
 
@@ -336,3 +352,5 @@ $(document).ready(function() {
         setPaymentStatus(totalPrice, amount);               
     });
 });
+
+
